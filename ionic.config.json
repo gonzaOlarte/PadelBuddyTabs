@@ -1,0 +1,7 @@
+{
+  "name": "PadelBuddy",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

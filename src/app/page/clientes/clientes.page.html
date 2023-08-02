@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Clientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-accordion-group>
+    <ion-accordion *ngFor="let clientesItem of clientesService.clientes"  >
+      <ion-item slot="header" color="light">
+        <ion-label color="primary" >{{clientesItem.clienteNombre}}  {{clientesItem.clienteApellido}} </ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Nombre: {{clientesItem.clienteNombre}}</div>
+      <div class="ion-padding" slot="content">Apellido: {{clientesItem.clienteApellido}}</div>
+      <div class="ion-padding" slot="content">DNI: {{clientesItem.clienteDNI}}</div>
+      <div class="ion-padding" slot="content">Dirección: {{clientesItem.clienteDireccion}}</div>
+      <div class="ion-padding" slot="content">Fecha Nacimeinto: {{clientesItem.clienteNacimiento}}</div>
+      <div class="ion-padding" slot="content">Descripción: {{clientesItem.clienteDescripcion}}</div>
+      <div class="ion-padding" slot="content">
+        <ion-button color="danger" shape="round" (click)="borrarCliente(clientesItem)" > Borrar</ion-button>
+        <ion-button color="warning" shape="round" (click)="editarCliente(clientesItem) "> Editar</ion-button>
+        
+      </div>
+
+    </ion-accordion>
+  </ion-accordion-group>
+
+
+
+<!--
+Botón flotante con 2 desplegables
+-->
+<ion-fab slot="fixed" horizontal="end" vertical="top">
+  <ion-fab-button>
+    <ion-icon name="chevron-down-circle"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="bottom">
+    <ion-fab-button>
+      <ion-icon name="person-add-outline" (click)="addCliente()"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button (click)="addPhotoToGallery()" >
+      <ion-icon name="camera-outline"></ion-icon> 
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
+
+
+<!-- IMPLEMENTAR ACORDEON (https://ionicframework.com/docs/api/accordion) -->
+
+
+
+</ion-content>
